@@ -10,50 +10,78 @@ Data Dosen Tidak Tetap
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Dosen</th>
-                        <th>NIDN/NIDK</th>
-                        <th>Pendidikan Pasca Sarjana</th>
-                        <th>Bidang Keahlian</th>
-                        <th>Jabatan Akademik</th>
-                        <th>Sertifikat Pendidik Profesional</th>
-                        <th>Sertifikat Kompetensi Profesi Industri</th>
-                        <th>Mata kuliah yang mampu diampu</th>
-                        <th>Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu</th>
-                        <th>Alat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($dosens as $dosen)
-                    @if ($dosen->desc == "Dosen Tidak Tetap")
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dosen->user->name }}</td>
-                        <td>{{ $dosen->user->nidn }}</td>
-                        <td>{{ $dosen->pps }}</td>
-                        <td>{{ $dosen->bk }}</td>
-                        <td>{{ $dosen->ja }}</td>
-                        <td>{{ $dosen->spp }}</td>
-                        <td>{{ $dosen->skpi }}</td>
-                        <td>{{ $dosen->mk }}</td>
-                        <td>{{ $dosen->kmk }}</td>
-                        <td>
-                          <a href="{{ route('dosenTidakTetap.edit', $dosen->id) }}"><i class="fas fa-pencil-alt"></i></a>
-                        </td>
-                    </tr>
-                    @endif
-                    @endforeach
-                </tbody>
-              </table>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dosen Tidak Tetap</h3>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('dosenTidakTetap.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dosen</th>
+                                <th>NIDN/NIDK</th>
+                                <th>Pendidikan Pasca Sarjana</th>
+                                <th>Bidang Keahlian</th>
+                                <th>Jabatan Akademik</th>
+                                <th>Sertifikat Pendidik Profesional</th>
+                                <th>Sertifikat Kompetensi Profesi Industri</th>
+                                <th>Mata kuliah yang mampu diampu</th>
+                                <th>Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu</th>
+                                <th>Alat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($dosens as $dosen)
+                            @if ($dosen->desc == "Dosen Tidak Tetap")
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $dosen->user->name }}</td>
+                                <td>{{ $dosen->user->nidn }}</td>
+                                <td>{{ $dosen->pps }}</td>
+                                <td>{{ $dosen->bk }}</td>
+                                <td>{{ $dosen->ja }}</td>
+                                <td>{{ $dosen->spp }}</td>
+                                <td>{{ $dosen->skpi }}</td>
+                                <td>{{ $dosen->mk }}</td>
+                                <td>{{ $dosen->kmk }}</td>
+                                <td>
+                                    <form action="{{ route('dosenTidakTetap.destroy', $dosen->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('dosenTidakTetap.show', $dosen->id) }}" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('dosenTidakTetap.edit', $dosen->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dosen</th>
+                                <th>NIDN/NIDK</th>
+                                <th>Pendidikan Pasca Sarjana</th>
+                                <th>Bidang Keahlian</th>
+                                <th>Jabatan Akademik</th>
+                                <th>Sertifikat Pendidik Profesional</th>
+                                <th>Sertifikat Kompetensi Profesi Industri</th>
+                                <th>Mata kuliah yang mampu diampu</th>
+                                <th>Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu</th>
+                                <th>Alat</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+            <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
         <div class="col-lg-9">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\PenelitianDTPS;
 use Illuminate\Http\Request;
 
 class PenelitianDTPSController extends Controller
@@ -14,7 +15,8 @@ class PenelitianDTPSController extends Controller
      */
     public function index()
     {
-        return view('dosen.PenelitianDTPS.index');
+        $penelitian = PenelitianDTPS::all();
+        return view('dosen.PenelitianDTPS.index', compact('penelitian'));
     }
 
     /**

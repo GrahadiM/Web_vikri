@@ -15,6 +15,11 @@ class CreateJasaDTPSTable extends Migration
     {
         Schema::create('jasa_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('produk');
+            $table->string('deskripsi');
+            $table->string('bukti');
+            $table->string('tahun');
             $table->timestamps();
         });
     }

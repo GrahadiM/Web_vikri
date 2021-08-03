@@ -9,43 +9,55 @@ Ekuivalen Waktu Mengajar Penuh <br> Dosen Tetap
 <div class="content">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12"> 
           <div class="card">
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+            <div class="card-header">
+              <h3 class="card-title">DataTable with default features</h3>
+              <div class="d-flex justify-content-end">
+                <a href="" class="btn btn-sm btn-outline-primary">Create</a>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                      <th>No</th>
-                      <th>Nama Dosen</th>
-                      <th>Jumlah SKS yang Di ajar Semester ini</th>
-                      <th>Rata-rata jumlah SKS yang di ajar Tiap Semester</th>
-                      <th>Alat</th>
+                    <th>No</th>
+                    @if (auth()->user()->role_id == 1)
+                    <th>Nama Dosen</th>
+                    @endif
+                    <th>Jumlah SKS yang di ajar semester ini</th>
+                    <th>Alat</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($ewmp as $item)
                   <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
+                    <td>{{ $loop->iteration }}</td>
+                    @if (auth()->user()->role_id == 1)
+                    <th>{{ $item->user->name }}</th>
+                    @endif
+                    <td>{{ $item->total_sks }}</td>
+                    <td>
+                      <form action="" method="post">
+                        <a href="" class="btn btn-sm btn-outline-info">Show</a>
+                        <a href="" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                      </form>
+                    </td>
                   </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
-                  </tr>
+                  @endforeach
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <th>No</th>
+                    @if (auth()->user()->role_id == 1)
+                    <th>Nama Dosen</th>
+                    @endif
+                    <th>Jumlah SKS yang di ajar semester ini</th>
+                    <th>Alat</th>
+                  </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->

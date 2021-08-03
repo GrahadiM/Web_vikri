@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class HKIBukuBerISBN extends Model
 {
     use HasFactory;
+    protected $table = 'h_k_i_buku_ber_i_s_b_n_s';
+    protected $fillable = ['user_id', 'pkm', 'tahun', 'ket'];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

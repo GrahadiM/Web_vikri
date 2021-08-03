@@ -9,53 +9,64 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
-                <thead>
-                  <tr>
-                      <th>No</th>
-                      <th>Nama Dosen</th>
-                      <th>Nama Produk/Kasa</th>
-                      <th>Deksripsi Produk</th>
-                      <th>Bukti</th>
-                      <th>Tahun</th>
-                      <th>Alat</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Produk/Jasa DTPS</h3>
+                    <div class="d-flex justify-content-end">
+                        <a href="" class="btn btn-sm btn-outline-primary">Create</a>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dosen</th>
+                                <th>Nama Produk/Jasa</th>
+                                <th>Deskripsi Produk</th>
+                                <th>Bukti</th>
+                                <th>Tahun</th>
+                                <th>Alat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($items as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->produk }}</td>
+                                <td>{{ $item->deksripsi }}</td>
+                                <td>{{ $item->bukti }}</td>
+                                <td>{{ $item->tahun }}</td>
+                                <td>
+                                    <form action="" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dosen</th>
+                                <th>Nama Produk/Jasa</th>
+                                <th>Deskripsi Produk</th>
+                                <th>Bukti</th>
+                                <th>Tahun</th>
+                                <th>Alat</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+            <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
         <div class="col-lg-9">

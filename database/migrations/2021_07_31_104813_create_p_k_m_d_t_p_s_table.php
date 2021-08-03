@@ -15,6 +15,9 @@ class CreatePKMDTPSTable extends Migration
     {
         Schema::create('p_k_m_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('sumber');
+            $table->string('total_judul');
             $table->timestamps();
         });
     }

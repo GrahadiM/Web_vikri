@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\EWMPDTPT;
 use Illuminate\Http\Request;
 
 class EWMPDTPTController extends Controller
@@ -14,7 +15,8 @@ class EWMPDTPTController extends Controller
      */
     public function index()
     {
-        return view('dosen.EWMPDTPT.index');
+        $ewmp = EWMPDTPT::all();
+        return view('dosen.EWMPDTPT.index', compact('ewmp'));
     }
 
     /**

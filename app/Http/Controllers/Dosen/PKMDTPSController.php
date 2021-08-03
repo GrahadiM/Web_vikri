@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\PKMDTPS;
 use Illuminate\Http\Request;
 
 class PKMDTPSController extends Controller
@@ -14,7 +15,8 @@ class PKMDTPSController extends Controller
      */
     public function index()
     {
-        return view('dosen.PKMDTPS.index');
+        $pkm = PKMDTPS::all();
+        return view('dosen.PKMDTPS.index', compact('pkm'));
     }
 
     /**

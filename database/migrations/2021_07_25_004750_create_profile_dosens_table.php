@@ -15,7 +15,7 @@ class CreateProfileDosensTable extends Migration
     {
         Schema::create('profile_dosen', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id'); //Dosen 
             $table->string('pps')->nullable(); //Pendidikan Pasca Sarjana
             $table->string('bk')->nullable(); //Bidang Keahlian
             $table->string('ja')->nullable(); //Jabatan Akademik

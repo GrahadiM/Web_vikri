@@ -15,6 +15,10 @@ class CreateHKITeknologiTepatGunasTable extends Migration
     {
         Schema::create('h_k_i_teknologi_tepat_gunas', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('pkm');
+            $table->string('tahun');
+            $table->string('ket');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateKaryaIlmiahDTPSTable extends Migration
     {
         Schema::create('karya_ilmiah_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('judul');
             $table->timestamps();
         });
     }

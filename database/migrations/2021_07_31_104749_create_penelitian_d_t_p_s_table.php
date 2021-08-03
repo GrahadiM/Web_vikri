@@ -15,6 +15,9 @@ class CreatePenelitianDTPSTable extends Migration
     {
         Schema::create('penelitian_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('sumber');
+            $table->string('total_judul');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreatePengakuanDTPSTable extends Migration
     {
         Schema::create('pengakuan_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('keahlian');
+            $table->string('bukti');
+            $table->string('tingkat');
             $table->timestamps();
         });
     }

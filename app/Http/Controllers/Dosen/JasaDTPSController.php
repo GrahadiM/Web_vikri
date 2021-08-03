@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\JasaDTPS;
 use Illuminate\Http\Request;
 
 class JasaDTPSController extends Controller
@@ -14,7 +15,8 @@ class JasaDTPSController extends Controller
      */
     public function index()
     {
-        return view('dosen.JasaDTPS.index');
+        $items = JasaDTPS::all();
+        return view('dosen.JasaDTPS.index', compact('items'));
     }
 
     /**

@@ -15,6 +15,8 @@ class CreatePublikasiIlmiahDTPSTable extends Migration
     {
         Schema::create('publikasi_ilmiah_d_t_p_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('jenis');
             $table->timestamps();
         });
     }

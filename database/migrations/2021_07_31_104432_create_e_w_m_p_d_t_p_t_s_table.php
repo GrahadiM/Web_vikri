@@ -15,6 +15,8 @@ class CreateEWMPDTPTSTable extends Migration
     {
         Schema::create('e_w_m_p_d_t_p_t_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('total_sks');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\KaryaIlmiahDTPS;
 use Illuminate\Http\Request;
 
 class KaryaIlmiahDTPSController extends Controller
@@ -14,7 +15,8 @@ class KaryaIlmiahDTPSController extends Controller
      */
     public function index()
     {
-        return view('dosen.KaryaIlmiahDTPS.index');
+        $items = KaryaIlmiahDTPS::all();
+        return view('dosen.KaryaIlmiahDTPS.index', compact('items'));
     }
 
     /**

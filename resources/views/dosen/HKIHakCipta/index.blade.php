@@ -9,47 +9,56 @@ Hak Kekayaan Intelektual (Hak Cipta, Desain Produk Industri, dll)
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
-                <thead>
-                  <tr>
-                      <th>No</th>
-                      <th>Luaran Penelitian dan PKM</th>
-                      <th>Tahun</th>
-                      <th>Keterangan</th>
-                      <th>Alat</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
-                        <a href=""> <i class="fas fa-eye"></i></a>
-                        <a href=""> <i class="fas fa-trash"></i></a>
-                      </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Hak Kekayaan Intelektual</h3>
+                    <div class="d-flex justify-content-end">
+                        <a href="" class="btn btn-sm btn-outline-primary">Create</a>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Luaran Penelitian dan PKM</th>
+                                <th>Tahun</th>
+                                <th>Keterangan</th>
+                                <th>Alat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <form action="" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Luaran Penelitian dan PKM</th>
+                                <th>Tahun</th>
+                                <th>Keterangan</th>
+                                <th>Alat</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+            <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
         <div class="col-lg-9">

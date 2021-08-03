@@ -4,84 +4,54 @@ namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProfileDosen;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DosenPembimbingUtamaTugasAkhirController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $dosens = ProfileDosen::all();
         return view('staff.dosenTA.index', compact('dosens'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $users = User::where('role_id', '3')->get();
+        return view('staff.dosenTA.create', compact('users'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            "user_id" => "nullable",
+            "total_mahasiswa" => "required",
+        ]);
+        ProfileDosen::create([
+            "user_id" => $request->user_id,
+            "total_mahasiswa" => $request->total_mahasiswa,
+            "pa" => "YA",
+        ]);
+    	
+    	return redirect()->back()->with('status', 'Data Created!');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $dosen = ProfileDosen::find($id);
+        return view('staff.dosenTA.show', compact('dosen'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $dosen = ProfileDosen::find($id);
+        return view('staff.dosenTA.update', compact('dosen'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $dosen = ProfileDosen::find($id);
+        $dosen->delete();
+    	return redirect()->back()->with('status', 'Data Deleted!');
     }
 }

@@ -15,6 +15,10 @@ class CreateHKIBukuBerISBNSTable extends Migration
     {
         Schema::create('h_k_i_buku_ber_i_s_b_n_s', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('pkm');
+            $table->string('tahun');
+            $table->string('ket');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\PengakuanDTPS;
 use Illuminate\Http\Request;
 
 class PengakuanDTPSController extends Controller
@@ -14,7 +15,8 @@ class PengakuanDTPSController extends Controller
      */
     public function index()
     {
-        return view('dosen.PengakuanDTPS.index');
+        $pengakuan = PengakuanDTPS::all();
+        return view('dosen.PengakuanDTPS.index', compact('pengakuan'));
     }
 
     /**
