@@ -21,7 +21,7 @@
                         <h4 class="card-title">Update Dosen Tetap</h4>
                     </div>
                     <div class="card-body">
-                        <p class="card-text"></p>
+                        <p class="card-text">Post</p>
                         <form class="form" method="POST" action="{{ route('akun.update', $dosen->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

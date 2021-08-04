@@ -22,7 +22,9 @@ Penelitian DTPS
                         <thead>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Sumber Pembiayaan</th>
                                 <th>Jumlah Judul Penelitian</th>
                                 <th>Alat</th>
@@ -32,7 +34,9 @@ Penelitian DTPS
                             @foreach ($penelitian as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                @if (auth()->user()->role_id == 1)
                                 <td>{{ $item->user->name }}</td>
+                                @endif
                                 <td>{{ $item->sumber }}</td>
                                 <td>{{ $item->total_judul }}</td>
                                 <td>
@@ -50,7 +54,9 @@ Penelitian DTPS
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Sumber Pembiayaan</th>
                                 <th>Jumlah Judul Penelitian</th>
                                 <th>Alat</th>

@@ -22,7 +22,9 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
                         <thead>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Nama Produk/Jasa</th>
                                 <th>Deskripsi Produk</th>
                                 <th>Bukti</th>
@@ -34,9 +36,11 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
                             @foreach ($items as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                @if (auth()->user()->role_id == 1)
                                 <td>{{ $item->user->name }}</td>
+                                @endif
                                 <td>{{ $item->produk }}</td>
-                                <td>{{ $item->deksripsi }}</td>
+                                <td>{{ $item->deskripsi }}</td>
                                 <td>{{ $item->bukti }}</td>
                                 <td>{{ $item->tahun }}</td>
                                 <td>
@@ -54,7 +58,9 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Nama Produk/Jasa</th>
                                 <th>Deskripsi Produk</th>
                                 <th>Bukti</th>

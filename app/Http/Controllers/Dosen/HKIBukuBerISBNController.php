@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\HKIBukuBerISBN;
 use Illuminate\Http\Request;
 
 class HKIBukuBerISBNController extends Controller
@@ -14,7 +15,8 @@ class HKIBukuBerISBNController extends Controller
      */
     public function index()
     {
-        return view('dosen.HKIBukuBerISBN.index');
+        $items = HKIBukuBerISBN::all();
+        return view('dosen.HKIBukuBerISBN.index', compact('items'));
     }
 
     /**

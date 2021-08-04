@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\HKIHakCipta;
 use Illuminate\Http\Request;
 
 class HKIHakCiptaController extends Controller
@@ -14,7 +15,8 @@ class HKIHakCiptaController extends Controller
      */
     public function index()
     {
-        return view('dosen.HKIHakCipta.index');
+        $items = HKIHakCipta::all();
+        return view('dosen.HKIHakCipta.index', compact('items'));
     }
 
     /**

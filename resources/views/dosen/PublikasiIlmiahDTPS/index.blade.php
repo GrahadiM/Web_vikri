@@ -22,7 +22,9 @@ Publikasi Ilmiah DTPS
                         <thead>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Jenis Publikasi</th>
                                 <th>Alat</th>
                             </tr>
@@ -31,7 +33,9 @@ Publikasi Ilmiah DTPS
                             @foreach ($publikasi as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                @if (auth()->user()->role_id == 1)
                                 <td>{{ $item->user->name }}</td>
+                                @endif
                                 <td>{{ $item->jenis }}</td>
                                 <td>
                                     <form action="" method="post">
@@ -48,7 +52,9 @@ Publikasi Ilmiah DTPS
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Jenis Publikasi</th>
                                 <th>Alat</th>
                             </tr>

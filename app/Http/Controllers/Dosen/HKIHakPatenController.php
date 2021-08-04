@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\HKIHakPaten;
 use Illuminate\Http\Request;
 
 class HKIHakPatenController extends Controller
@@ -14,7 +15,8 @@ class HKIHakPatenController extends Controller
      */
     public function index()
     {
-        return view('dosen.HKIHakPaten.index');
+        $items = HKIHakPaten::all();
+        return view('dosen.HKIHakPaten.index', compact('items'));
     }
 
     /**

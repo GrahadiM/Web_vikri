@@ -22,6 +22,9 @@ Hak Kekayaan Intelektual (Buku Ber-ISBN, Book Chapter)
                         <thead>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
+                                <th>Nama Dosen</th>
+                                @endif
                                 <th>Luaran Penelitian dan PKM</th>
                                 <th>Tahun</th>
                                 <th>Keterangan</th>
@@ -29,11 +32,15 @@ Hak Kekayaan Intelektual (Buku Ber-ISBN, Book Chapter)
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($items as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                @if (auth()->user()->role_id == 1)
+                                <td>{{ $item->user->name }}</td>
+                                @endif
+                                <td>{{ $item->pkm }}</td>
+                                <td>{{ $item->tahun }}</td>
+                                <td>{{ $item->ket }}</td>
                                 <td>
                                     <form action="" method="post">
                                     @csrf
@@ -44,10 +51,14 @@ Hak Kekayaan Intelektual (Buku Ber-ISBN, Book Chapter)
                                     </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
+                                <th>Nama Dosen</th>
+                                @endif
                                 <th>Luaran Penelitian dan PKM</th>
                                 <th>Tahun</th>
                                 <th>Keterangan</th>

@@ -19,6 +19,17 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
             ProfileDosenSeeder::class,
             UsersSeeder::class,
+            EWMPSeeder::class,
+            PengakuanSeeder::class,
+            PenelitianSeeder::class,
+            PKMSeeder::class,
+            PublikasiSeeder::class,
+            KaryaIlmiahSeeder::class,
+            ProdukSeeder::class,
+            HKIHakCiptaSeeder::class,
+            HKIHakPatenSeeder::class,
+            HKIBukuBerISBNSeeder::class,
+            HKITeknologiTepatGunaSeeder::class,
         ]);
     }
 }

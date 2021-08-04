@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Models\HKITeknologiTepatGuna;
 use Illuminate\Http\Request;
 
 class HKITeknologiTepatGunaController extends Controller
@@ -14,7 +15,8 @@ class HKITeknologiTepatGunaController extends Controller
      */
     public function index()
     {
-        return view('dosen.HKITeknologiTepatGuna.index');
+        $items = HKITeknologiTepatGuna::all();
+        return view('dosen.HKITeknologiTepatGuna.index', compact('items'));
     }
 
     /**

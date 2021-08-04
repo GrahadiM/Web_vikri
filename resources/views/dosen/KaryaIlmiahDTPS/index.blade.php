@@ -22,7 +22,9 @@ Karya Ilmiah DTPS yang disitasi dalam 3 tahun terakhir
                         <thead>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Judul Artike yang diatasi (Jurnal, Volum, Tahun, Nomer, dan Halaman)</th>
                                 <th>Alat</th>
                             </tr>
@@ -31,7 +33,9 @@ Karya Ilmiah DTPS yang disitasi dalam 3 tahun terakhir
                             @foreach ($items as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                @if (auth()->user()->role_id == 1)
                                 <td>{{ $item->user->name }}</td>
+                                @endif
                                 <td>{{ $item->judul }}</td>
                                 <td>
                                     <form action="" method="post">
@@ -48,7 +52,9 @@ Karya Ilmiah DTPS yang disitasi dalam 3 tahun terakhir
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                @if (auth()->user()->role_id == 1)
                                 <th>Nama Dosen</th>
+                                @endif
                                 <th>Judul Artike yang diatasi (Jurnal, Volum, Tahun, Nomer, dan Halaman)</th>
                                 <th>Alat</th>
                             </tr>

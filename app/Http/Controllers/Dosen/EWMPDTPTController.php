@@ -26,7 +26,7 @@ class EWMPDTPTController extends Controller
      */
     public function create()
     {
-        //
+        return view('dosen.EWMPDTPT.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class EWMPDTPTController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dosen.EWMPDTPT.show');
     }
 
     /**
@@ -59,7 +59,8 @@ class EWMPDTPTController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = EWMPDTPT::find($id);
+        return view('dosen.EWMPDTPT.update', compact('item'));
     }
 
     /**
