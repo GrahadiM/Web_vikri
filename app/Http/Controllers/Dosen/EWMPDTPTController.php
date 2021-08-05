@@ -37,7 +37,16 @@ class EWMPDTPTController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate($request, [
+            "total_sks" => "required",
+        ]);
+        EWMPDTPT::create([
+            "user_id" => auth()->user()->id,
+            "total_sks" => $request->total_sks,
+        ]);
+        
+    	return redirect()->back()->with('status', 'Form Created!');
     }
 
     /**
@@ -72,7 +81,17 @@ class EWMPDTPTController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $this->validate($request, [
+            "total_sks" => "required",
+        ]);
+        $item = EWMPDTPT::find($id);
+        $item->update([
+            "user_id" => auth()->user()->id,
+            "total_sks" => $request->total_sks,
+        ]);
+        
+    	return redirect()->back()->with('status', 'Form Updated!');
     }
 
     /**
@@ -83,6 +102,8 @@ class EWMPDTPTController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = EWMPDTPT::find($id);
+        $item->delete();
+    	return redirect()->back()->with('status', 'Form Updated!');
     }
 }

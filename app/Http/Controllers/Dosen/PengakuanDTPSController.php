@@ -8,80 +8,83 @@ use Illuminate\Http\Request;
 
 class PengakuanDTPSController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $pengakuan = PengakuanDTPS::all();
         return view('dosen.PengakuanDTPS.index', compact('pengakuan'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('dosen.PengakuanDTPS.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        // dd($request->all());
+        $request->validate([
+            "keahlian" => "required",
+            "tingkat" => "required",
+        ]);
+        if ($request->hasFile(["bukti"])) {
+            $file = $request->file(["bukti"]);
+            $filenameOri = $file->getClientOriginalName();
+            $filename = time() . "-" . $filenameOri;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+            $file->move('file/bukti', $filename);
+
+            PengakuanDTPS::create([
+                "user_id" => auth()->user()->id,
+                "keahlian" => $request->keahlian,
+                "bukti" => $filename,
+                "tingkat" => $request->tingkat,
+            ]);
+        }
+        
+    	return redirect()->back()->with('status', 'Form Created!');
+    }
     public function show($id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $item = PengakuanDTPS::find($id);
+        return view('dosen.PengakuanDTPS.update', compact('item'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
-    }
+        // dd($request->all());
+        $request->validate([
+            "keahlian" => "required",
+            "tingkat" => "required",
+        ]);
+        if ($request->hasFile(["bukti"])) {
+            $file = $request->file(["bukti"]);
+            $filenameOri = $file->getClientOriginalName();
+            $filename = time() . "-" . $filenameOri;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+            $file->move('file/bukti', $filename);
+
+            $item = PengakuanDTPS::find($id);
+            $item->update([
+                "user_id" => auth()->user()->id,
+                "keahlian" => $request->keahlian,
+                "bukti" => $filename,
+                "tingkat" => $request->tingkat,
+            ]);
+        }
+        $item = PengakuanDTPS::find($id);
+        $item->update([
+            "user_id" => auth()->user()->id,
+            "keahlian" => $request->keahlian,
+            "tingkat" => $request->tingkat,
+        ]);
+        
+    	return redirect()->back()->with('status', 'Form Updated!');
+    }
     public function destroy($id)
     {
-        //
+        $item = PengakuanDTPS::find($id);
+        $item->delete();
+    	return redirect()->back()->with('status', 'Form Deleted!');
     }
 }

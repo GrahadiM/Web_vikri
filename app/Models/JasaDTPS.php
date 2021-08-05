@@ -9,7 +9,7 @@ class JasaDTPS extends Model
 {
     use HasFactory;
     protected $table = 'jasa_d_t_p_s';
-    protected $fillable = ['user_id', 'produk', 'deksripsi', 'bukti', 'tahun'];
+    protected $fillable = ['user_id', 'produk', 'deskripsi', 'bukti', 'tahun'];
     public function user()
     {
         return $this->belongsTo('App\Models\User');

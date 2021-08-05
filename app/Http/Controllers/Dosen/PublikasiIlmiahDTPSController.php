@@ -8,80 +8,55 @@ use Illuminate\Http\Request;
 
 class PublikasiIlmiahDTPSController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $publikasi = PublikasiIlmiahDTPS::all();
         return view('dosen.PublikasiIlmiahDTPS.index', compact('publikasi'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('dosen.PublikasiIlmiahDTPS.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            "jenis" => "required",
+        ]);
+        PublikasiIlmiahDTPS::create([
+            "user_id" => auth()->user()->id,
+            "jenis" => $request->jenis,
+        ]);
+        
+    	return redirect()->back()->with('status', 'Form Created!');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $item = PublikasiIlmiahDTPS::find($id);
+        return view('dosen.PublikasiIlmiahDTPS.update', compact('item'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            "jenis" => "required",
+        ]);
+        $item = PublikasiIlmiahDTPS::find($id);
+        $item->update([
+            "user_id" => auth()->user()->id,
+            "jenis" => $request->jenis,
+        ]);
+        
+    	return redirect()->back()->with('status', 'Form Updated!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $item = PublikasiIlmiahDTPS::find($id);
+        $item->delete();
+    	return redirect()->back()->with('status', 'Form Deleted!');
     }
 }

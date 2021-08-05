@@ -23,7 +23,7 @@ class DosenTetapController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            "user_id" => "nullable",
+            // "user_id" => "nullable",
             "pps" => "required",
             "bk" => "required",
             "ja" => "required",
@@ -33,23 +33,30 @@ class DosenTetapController extends Controller
             // "skpi" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
         ]);
 
-        if ($request->hasFile(["spp", "skpi"])) {
-            $file = $request->file(["spp", "skpi"]);
+        if ($request->hasFile("spp")) {
+            $file = $request->file("spp");
             $filename = time() . "." . $file->getClientOriginalExtension();
 
-            $file->move('file/sertifikat', $filename);
+            $file->move('file/sertifikat-pendidikan-profesional', $filename);
 
-            // File::delete('assets/image/spp' . $user->spp);
-            User::create([
-                "user_id" => $request->user_id,
-                "pps" => $request->pps,
-                "bk" => $request->bk,
-                "ja" => $request->ja,
-                "mk" => $request->mk,
-                "kmk" => $request->kmk,
-                "spp" => $filename,
-                "skpi" => $filename,
-            ]);
+            if ($request->hasFile("skpi")) {
+                $file = $request->file("skpi");
+                $filename2 = time() . "." . $file->getClientOriginalExtension();
+
+                $file->move('file/sertifikat-kompetensi-profesi-industri', $filename2);
+
+                // File::delete('assets/image/skpi' . $user->skpi);
+                ProfileDosen::create([
+                    "user_id" => $request->user_id,
+                    "pps" => $request->pps,
+                    "bk" => $request->bk,
+                    "ja" => $request->ja,
+                    "mk" => $request->mk,
+                    "kmk" => $request->kmk,
+                    "spp" => $filename,
+                    "skpi" => $filename2,
+                ]);
+            }
         }
     	
     	return redirect()->back()->with('status', 'Data Created!');
@@ -66,7 +73,66 @@ class DosenTetapController extends Controller
     }
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            // "user_id" => "nullable",
+            "pps" => "required",
+            "bk" => "required",
+            "ja" => "required",
+            "mk" => "required",
+            "kmk" => "required",
+            // "spp" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
+            // "skpi" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
+        ]);
+
+        if ($request->hasFile("spp")) {
+            $file = $request->file("spp");
+            $filename = time() . "." . $file->getClientOriginalExtension();
+
+            $file->move('file/sertifikat-pendidikan-profesional', $filename);
+
+            if ($request->hasFile("skpi")) {
+                $file = $request->file("skpi");
+                $filename2 = time() . "." . $file->getClientOriginalExtension();
+
+                $file->move('file/sertifikat-kompetensi-profesi-industri', $filename2);
+
+                // File::delete('assets/image/skpi' . $user->skpi);
+                $dosen = ProfileDosen::find($id);
+                $dosen->update([
+                    "user_id" => $request->user_id,
+                    "pps" => $request->pps,
+                    "bk" => $request->bk,
+                    "ja" => $request->ja,
+                    "mk" => $request->mk,
+                    "kmk" => $request->kmk,
+                    "spp" => $filename,
+                    "skpi" => $filename2,
+                ]);
+                
+                $dosen = ProfileDosen::find($id);
+                $dosen->update([
+                    "user_id" => $request->user_id,
+                    "pps" => $request->pps,
+                    "bk" => $request->bk,
+                    "ja" => $request->ja,
+                    "mk" => $request->mk,
+                    "kmk" => $request->kmk,
+                    "spp" => $filename,
+                ]);
+            }
+            
+            $dosen = ProfileDosen::find($id);
+            $dosen->update([
+                "user_id" => $request->user_id,
+                "pps" => $request->pps,
+                "bk" => $request->bk,
+                "ja" => $request->ja,
+                "mk" => $request->mk,
+                "kmk" => $request->kmk,
+            ]);
+        }
+        return redirect()->back()->with('status', 'Form Updated!');
     }
     public function destroy($id)
     {

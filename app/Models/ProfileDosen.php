@@ -9,7 +9,20 @@ class ProfileDosen extends Model
 {
     use HasFactory;
     protected $table = 'profile_dosen';
-    protected $guarded = [''];
+    protected $fillable = 
+    [
+        'user_id',
+        'pps',
+        'bk',
+        'ja',
+        'spp',
+        'skpi',
+        'mk',
+        'kmk',
+        'total_mahasiswa',
+        'pa',
+        'desc',
+    ];
     public function user()
     {
         return $this->belongsTo('App\Models\User');

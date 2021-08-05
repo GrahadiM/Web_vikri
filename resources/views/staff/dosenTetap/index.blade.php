@@ -13,9 +13,9 @@ Data Dosen Tetap
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">List Dosen Tetap</h3>
-                    <div class="d-flex justify-content-end">
+                    {{-- <div class="d-flex justify-content-end">
                         <a href="{{ route('dosenTetap.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -42,13 +42,13 @@ Data Dosen Tetap
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dosen->user->name }}</td>
                                 <td>{{ $dosen->user->nidn }}</td>
-                                <td>{{ $dosen->user->pps }}</td>
-                                <td>{{ $dosen->user->bk }}</td>
-                                <td>{{ $dosen->user->ja }}</td>
-                                <td>{{ $dosen->user->spp }}</td>
-                                <td>{{ $dosen->user->skpi }}</td>
-                                <td>{{ $dosen->user->mk }}</td>
-                                <td>{{ $dosen->user->kmk }}</td>
+                                <td>{{ $dosen->pps }}</td>
+                                <td>{{ $dosen->bk }}</td>
+                                <td>{{ $dosen->ja }}</td>
+                                <td>{{ $dosen->spp }}</td>
+                                <td>{{ $dosen->skpi }}</td>
+                                <td>{{ $dosen->mk }}</td>
+                                <td>{{ $dosen->kmk }}</td>
                                 <td>
                                     <form action="{{ route('dosenTetap.destroy', $dosen->id) }}" method="post">
                                         @csrf

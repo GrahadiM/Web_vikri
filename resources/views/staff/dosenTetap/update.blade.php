@@ -1,7 +1,7 @@
 @extends('staff.layouts.index')
 
 @section('subtitle')
-Update Dosen Tetap
+Show Dosen Tetap
 @endsection
 
 @section('content')
@@ -18,87 +18,88 @@ Update Dosen Tetap
                 @endif
                 <div class="card">
                     <div class="card-header bg-primary">
-                        <h4 class="card-title">Update Dosen Tetap</h4>
+                        <h4 class="card-title">Show Dosen Tetap</h4>
                     </div>
                     <div class="card-body">
                         <p class="card-text"></p>
-                        <form class="form" method="POST" action="{{ route('akun.update', $dosen->id) }}" enctype="multipart/form-data">
+                        <form class="form" method="POST" action="{{ route('dosenTetap.update', $dosen->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-12">
                                         <div class="form-group row">
-                                            <label for="name" class="col-md-2 col-form-label text-md-left">Nama</label>
+                                            <label for="user_id" class="col-md-2 col-form-label text-md-left">Nama Dosen</label>
                                             <div class="col-md-10">
-                                                <input name="name" id="name" class="form-control" type="text" value="{{ $dosen->name }}">
-                                                <p class="text-danger">{{ $errors->first("name") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="phone" class="col-md-2 col-form-label text-md-left">Nomer Handphone</label>
-                                            <div class="col-md-10">
-                                                <input name="phone" type="text" id="phone" class="form-control" value="{{ $dosen->phone }}">
-                                                <p class="text-danger">{{ $errors->first("phone") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="nidn" class="col-md-2 col-form-label text-md-left">NIDN/NIDK</label>
-                                            <div class="col-md-10">
-                                                <input name="nidn" type="text" id="nidn" class="form-control" value="{{ $dosen->nidn }}">
-                                                <p class="text-danger">{{ $errors->first("nidn") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="gender" class="col-md-2 col-form-label text-md-left">Jenis Kelamin</label>
-                                            <div class="col-md-10">
-                                                <select name="gender" class="form-control">
-                                                    <option value="{{ $dosen->gender }}">{{ $dosen->gender }}</option>
-                                                    <option value="Pria">Pria</option>
-                                                    <option value="Wanita">Wanita</option>
+                                                <select name="user_id" class="form-control">
+                                                    <option value="{{ $dosen->user->id }}">{{ $dosen->user->name }}</option>
                                                 </select>
-                                                <p class="text-danger">{{ $errors->first("gender") }}</p>
+                                                <p class="text-danger">{{ $errors->first("user_id") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="desc" class="col-md-2 col-form-label text-md-left">Deskripsi</label>
+                                            <label for="user_id" class="col-md-2 col-form-label text-md-left">NIDN</label>
                                             <div class="col-md-10">
-                                                <select name="desc" class="form-control">
-                                                    <option value="{{ $dosen->desc }}">{{ $dosen->desc }}</option>
-                                                    <option value="Dosen Tetap">Dosen Tetap</option>
-                                                    <option value="Dosen Tidak Tetap">Dosen Tidak Tetap</option>
+                                                <select name="user_id" class="form-control">
+                                                    <option value="{{ $dosen->user->nidn }}">{{ $dosen->user->nidn }}</option>
                                                 </select>
-                                                <p class="text-danger">{{ $errors->first("desc") }}</p>
+                                                <p class="text-danger">{{ $errors->first("user_id") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="email" class="col-md-2 col-form-label text-md-left">Email</label>
+                                            <label for="pps" class="col-md-2 col-form-label text-md-left">Pendidikan Pasca Sarjana</label>
                                             <div class="col-md-10">
-                                                <input name="email" id="email" type="email" class="form-control" placeholder="Email"  value="{{ $dosen->email }}">
-                                                <p class="text-danger">{{ $errors->first("email") }}</p>
+                                                <input name="pps" id="pps" class="form-control" type="text" value="{{ $dosen->user->pps }}">
+                                                <p class="text-danger">{{ $errors->first("pps") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="password" class="col-md-2 col-form-label text-md-left">Password</label>
+                                            <label for="bk" class="col-md-2 col-form-label text-md-left">Bidang Keahlian</label>
                                             <div class="col-md-10">
-                                                <input value="{{ $dosen->password }}" name="password" id="password" type="password" class="form-control" placeholder="Masukkan password">
-                                                <p class="text-danger">{{ $errors->first("password") }}</p>
+                                                <input name="bk" id="bk" class="form-control" type="text" value="{{ $dosen->user->bk }}">
+                                                <p class="text-danger">{{ $errors->first("bk") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="password-confirm" class="col-md-2 col-form-label text-md-left">{{ __('Confirm Password') }}</label>
-                
+                                            <label for="ja" class="col-md-2 col-form-label text-md-left">Jabatan Akademik</label>
                                             <div class="col-md-10">
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                                                <input name="ja" id="ja" class="form-control" type="text" value="{{ $dosen->user->ja }}">
+                                                <p class="text-danger">{{ $errors->first("ja") }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="mk" class="col-md-2 col-form-label text-md-left">Mata Kuliah yang mampu diampu</label>
+                                            <div class="col-md-10">
+                                                <input name="mk" id="mk" class="form-control" type="text" value="{{ $dosen->user->mk }}">
+                                                <p class="text-danger">{{ $errors->first("mk") }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="kmk" class="col-md-2 col-form-label text-md-left">Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu</label>
+                                            <div class="col-md-10">
+                                                <input name="kmk" id="kmk" class="form-control" type="text" value="{{ $dosen->user->kmk }}">
+                                                <p class="text-danger">{{ $errors->first("kmk") }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 d-flex justify-content-center">
-                                        <div class="form-group">
-                                            <label for="image">Masukkan Foto Profile</label>
-                                            <input name="image" type="file" class="form-control-file" id="image">
-                                            <img alt="image" src="{{ asset('img/profile/' . $dosen->image) }}" class="img-fluid" style="width: 200px; margin-top: 1rem;">
-                                            <p class="text-danger">{{ $errors->first("image") }}</p>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="spp" class="col-md-12 col-form-label text-md-left">Sertifikat Pendidik Profesional</label>
+                                            <div class="col-md-12">
+                                                <input name="spp" type="file" id="spp" class="form-input mt-3">
+                                                <p>{{ $dosen->user->spp }}</p>
+                                                <p class="text-danger">{{ $errors->first("spp") }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label for="skpi" class="col-md-12 col-form-label text-md-left">Sertifikat Kompetensi Profesi Industri</label>
+                                            <div class="col-md-12">
+                                                <input name="skpi" type="file" id="skpi" class="form-input mt-3">
+                                                <p>{{ $dosen->user->skpi }}</p>
+                                                <p class="text-danger">{{ $errors->first("skpi") }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +108,8 @@ Update Dosen Tetap
                                 <div class="form-actions col-6"></div>
                                 <div class="form-actions col-6 d-flex justify-content-end">
                                     <button value="save" type="submit" class="btn btn-primary btn-round px-5 mr-3">Submit</button>
-                                    <a href="{{ url('/akun') }}" class="btn btn-danger btn-round px-5">Cancel</a>
+                                    {{-- <a href="{{ route('dosenTetap.edit', $dosen->id) }}" class="btn btn-primary btn-round px-5 mr-3">Update</a> --}}
+                                    <a href="{{ route('dosenTetap.index') }}" class="btn btn-danger btn-round px-5">Cancel</a>
                                 </div>
                             </div>
                         </form>

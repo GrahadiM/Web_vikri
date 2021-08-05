@@ -18,7 +18,7 @@ Create Dosen Tetap
                 @endif
                 <div class="card">
                     <div class="card-header bg-primary">
-                        <h4 class="card-title">Update Dosen Tetap</h4>
+                        <h4 class="card-title">Create Dosen Tetap</h4>
                     </div>
                     <div class="card-body">
                         <p class="card-text"></p>

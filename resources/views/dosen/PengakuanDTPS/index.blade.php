@@ -16,7 +16,7 @@ Pengakuan/Rekognisi DTPS
               <div class="card-header">
                   <h3 class="card-title">Pengakuan/Rekognisi DTPS</h3>
                   <div class="d-flex justify-content-end">
-                    <a href="" class="btn btn-sm btn-outline-primary">Create</a>
+                    <a href="{{ route('Pengakuan-DTPS.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
                   </div>
               </div>
               <!-- /.card-header -->
@@ -45,13 +45,13 @@ Pengakuan/Rekognisi DTPS
                             <td>{{ $item->bukti }}</td>
                             <td>{{ $item->tingkat }}</td>
                             <td>
-                              <form action="" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a>
-                                <a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
-                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
-                              </form>
+                                <form action="{{ route('Pengakuan-DTPS.destroy', $item->id) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  {{-- <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a> --}}
+                                  <a href="{{ route('Pengakuan-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                  <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                           </tr>
                           @endforeach
@@ -119,7 +119,7 @@ Pengakuan/Rekognisi DTPS
               <div class="card-header">
                   <h3 class="card-title">Pengakuan/Rekognisi DTPS</h3>
                   <div class="d-flex justify-content-end">
-                    <a href="" class="btn btn-sm btn-outline-primary">Create</a>
+                    <a href="{{ route('Pengakuan-DTPS.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
                   </div>
               </div>
               <!-- /.card-header -->
@@ -143,11 +143,11 @@ Pengakuan/Rekognisi DTPS
                             <td>{{ $item->bukti }}</td>
                             <td>{{ $item->tingkat }}</td>
                             <td>
-                              <form action="" method="post">
+                              <form action="{{ route('Pengakuan-DTPS.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a>
-                                <a href="" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                {{-- <a href="" class="btn btn-sm btn-outline-info"><i class="fas fa-eye"></i></a> --}}
+                                <a href="{{ route('Pengakuan-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                 <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                               </form>
                             </td>
