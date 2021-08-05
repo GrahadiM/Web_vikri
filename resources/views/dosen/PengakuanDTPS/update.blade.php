@@ -20,14 +20,14 @@
                         <h4 class="card-title">Form Update</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" method="POST" action="{{ route('Jasa-DTPS.update', $item->id) }}" enctype="multipart/form-data">
+                        <form class="form" method="POST" action="{{ route('Pengakuan-DTPS.update', $item->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                            <label for="produk" class="col-md-2 col-form-label text-md-left">Nama Produk/Jasa</label>
+                                            <label for="produk" class="col-md-2 col-form-label text-md-left">Nama Produk/Pengakuan</label>
                                             <div class="col-md-10">
                                                 <input name="produk" id="produk" class="form-control" type="text" value="{{ $item->produk }}">
                                                 <p class="text-danger">{{ $errors->first("produk") }}</p>
@@ -61,7 +61,7 @@
                                 <div class="form-actions col-6"></div>
                                 <div class="form-actions col-6 d-flex justify-content-end">
                                     <button value="save" type="submit" class="btn btn-primary btn-round px-5 mr-3">Submit</button>
-                                    <a href="{{ route('Jasa-DTPS.index') }}" class="btn btn-danger btn-round px-5">Cancel</a>
+                                    <a href="{{ route('Pengakuan-DTPS.index') }}" class="btn btn-danger btn-round px-5">Cancel</a>
                                 </div>
                             </div>
                         </form>

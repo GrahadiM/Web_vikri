@@ -15,7 +15,7 @@ class JasaDTPSController extends Controller
     }
     public function create()
     {
-        return view('dosen.PengakuanDTPS.create');
+        return view('dosen.JasaDTPS.create');
     }
     public function store(Request $request)
     {
@@ -50,7 +50,7 @@ class JasaDTPSController extends Controller
     public function edit($id)
     {
         $item = JasaDTPS::find($id);
-        return view('dosen.PengakuanDTPS.update', compact('item'));
+        return view('dosen.JasaDTPS.update', compact('item'));
     }
     public function update(Request $request, $id)
     {

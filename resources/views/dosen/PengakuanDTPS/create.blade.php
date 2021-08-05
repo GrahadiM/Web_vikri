@@ -20,7 +20,7 @@
                         <h4 class="card-title">Form Create</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form" method="POST" action="{{ route('Jasa-DTPS.store') }}" enctype="multipart/form-data">
+                        <form class="form" method="POST" action="{{ route('Pengakuan-DTPS.store') }}" enctype="multipart/form-data">
                         @csrf
                         {{-- @method('PUT') --}}
                             <div class="form-body">
@@ -61,7 +61,7 @@
                                 <div class="form-actions col-6"></div>
                                 <div class="form-actions col-6 d-flex justify-content-end">
                                     <button value="save" type="submit" class="btn btn-primary btn-round px-5 mr-3">Submit</button>
-                                    <a href="{{ route('Jasa-DTPS.index') }}" class="btn btn-danger btn-round px-5">Cancel</a>
+                                    <a href="{{ route('Pengakuan-DTPS.index') }}" class="btn btn-danger btn-round px-5">Cancel</a>
                                 </div>
                             </div>
                         </form>
