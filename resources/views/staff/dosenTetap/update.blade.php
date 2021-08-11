@@ -18,7 +18,7 @@ Show Dosen Tetap
                 @endif
                 <div class="card">
                     <div class="card-header bg-primary">
-                        <h4 class="card-title">Show Dosen Tetap</h4>
+                        <h4 class="card-title">Update Dosen Tetap</h4>
                     </div>
                     <div class="card-body">
                         <p class="card-text"></p>
@@ -38,46 +38,37 @@ Show Dosen Tetap
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="user_id" class="col-md-2 col-form-label text-md-left">NIDN</label>
-                                            <div class="col-md-10">
-                                                <select name="user_id" class="form-control">
-                                                    <option value="{{ $dosen->user->nidn }}">{{ $dosen->user->nidn }}</option>
-                                                </select>
-                                                <p class="text-danger">{{ $errors->first("user_id") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label for="pps" class="col-md-2 col-form-label text-md-left">Pendidikan Pasca Sarjana</label>
                                             <div class="col-md-10">
-                                                <input name="pps" id="pps" class="form-control" type="text" value="{{ $dosen->user->pps }}">
+                                                <input name="pps" id="pps" class="form-control" type="text" value="{{ $dosen->pps }}">
                                                 <p class="text-danger">{{ $errors->first("pps") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="bk" class="col-md-2 col-form-label text-md-left">Bidang Keahlian</label>
                                             <div class="col-md-10">
-                                                <input name="bk" id="bk" class="form-control" type="text" value="{{ $dosen->user->bk }}">
+                                                <input name="bk" id="bk" class="form-control" type="text" value="{{ $dosen->bk }}">
                                                 <p class="text-danger">{{ $errors->first("bk") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="ja" class="col-md-2 col-form-label text-md-left">Jabatan Akademik</label>
                                             <div class="col-md-10">
-                                                <input name="ja" id="ja" class="form-control" type="text" value="{{ $dosen->user->ja }}">
+                                                <input name="ja" id="ja" class="form-control" type="text" value="{{ $dosen->ja }}">
                                                 <p class="text-danger">{{ $errors->first("ja") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="mk" class="col-md-2 col-form-label text-md-left">Mata Kuliah yang mampu diampu</label>
                                             <div class="col-md-10">
-                                                <input name="mk" id="mk" class="form-control" type="text" value="{{ $dosen->user->mk }}">
+                                                <input name="mk" id="mk" class="form-control" type="text" value="{{ $dosen->mk }}">
                                                 <p class="text-danger">{{ $errors->first("mk") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="kmk" class="col-md-2 col-form-label text-md-left">Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu</label>
                                             <div class="col-md-10">
-                                                <input name="kmk" id="kmk" class="form-control" type="text" value="{{ $dosen->user->kmk }}">
+                                                <input name="kmk" id="kmk" class="form-control" type="text" value="{{ $dosen->kmk }}">
                                                 <p class="text-danger">{{ $errors->first("kmk") }}</p>
                                             </div>
                                         </div>
@@ -86,8 +77,8 @@ Show Dosen Tetap
                                         <div class="form-group row">
                                             <label for="spp" class="col-md-12 col-form-label text-md-left">Sertifikat Pendidik Profesional</label>
                                             <div class="col-md-12">
-                                                <input name="spp" type="file" id="spp" class="form-input mt-3">
-                                                <p>{{ $dosen->user->spp }}</p>
+                                                <input name="spp" type="file" id="spp" class="form-input mt-3" value="{{ $dosen->spp }}">
+                                                <p>{{ $dosen->spp }}</p>
                                                 <p class="text-danger">{{ $errors->first("spp") }}</p>
                                             </div>
                                         </div>
@@ -96,8 +87,8 @@ Show Dosen Tetap
                                         <div class="form-group row">
                                             <label for="skpi" class="col-md-12 col-form-label text-md-left">Sertifikat Kompetensi Profesi Industri</label>
                                             <div class="col-md-12">
-                                                <input name="skpi" type="file" id="skpi" class="form-input mt-3">
-                                                <p>{{ $dosen->user->skpi }}</p>
+                                                <input name="skpi" type="file" id="skpi" class="form-input mt-3" value="{{ $dosen->skpi }}">
+                                                <p>{{ $dosen->skpi }}</p>
                                                 <p class="text-danger">{{ $errors->first("skpi") }}</p>
                                             </div>
                                         </div>

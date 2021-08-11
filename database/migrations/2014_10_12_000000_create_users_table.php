@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->bigInteger('status_id');
             $table->string('gender')->nullable();
             $table->string('birthday')->nullable();
-            $table->string('nidn')->nullable();
             $table->string('phone')->nullable();
             $table->string('image')->nullable();
+            // $table->string('nidn')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

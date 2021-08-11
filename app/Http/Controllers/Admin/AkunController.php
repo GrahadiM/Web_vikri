@@ -25,7 +25,8 @@ class AkunController extends Controller
         $request->validate([
             'name' => 'required', 'string', 'max:255',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'nidn' => 'required|numeric',
+            'username' => 'required', 'string', 'max:255', 'unique:users',
+            'nidn' => 'required', 'numeric', 'unique:users',
             'birthday' => 'required',
             'gender' => 'required',
             'role_id' => 'required',
@@ -35,6 +36,7 @@ class AkunController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'username' => $request->username,
             'nidn' => $request->nidn,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
@@ -64,6 +66,7 @@ class AkunController extends Controller
         $this->validate($request, [
             "name" => "required|string",
             "email" => "required|email|unique:users,id," . $id,
+            "username" => "required|unique:users,id," . $id,
             "password" => "required",
             // "gender" => "required",
             // "nidn" => "required",
@@ -86,6 +89,7 @@ class AkunController extends Controller
                 $user->update([
                     "name" => $request->name,
                     "email" => $request->email,
+                    "username" => $request->username,
                     "password" => Hash::make($request->password),
                     "image" => $filename,
                     "gender" => $request->gender,
@@ -98,6 +102,7 @@ class AkunController extends Controller
                 $user->update([
                     "name" => $request->name,
                     "email" => $request->email,
+                    "username" => $request->username,
                     "password" => $request->password,
                     "image" => $filename,
                     "gender" => $request->gender,
@@ -107,16 +112,28 @@ class AkunController extends Controller
                 ]);
             }
         } else {
-            //jika user tidak mengubah foto
-            $user->update([
-                "name" => $request->name,
-                "email" => $request->email,
-                "password" => $request->password,
-                "gender" => $request->gender,
-                "nidn" => $request->nidn,
-                "phone" => $request->phone,
-                "desc" => $request->desc,
-            ]);
+            // Jika user tidak mengubah foto
+            // Jika user mengganti passwornya password 
+            if ($user->password != $request->password) {
+                $user->update([
+                    "name" => $request->name,
+                    "email" => $request->email,
+                    "password" => Hash::make($request->password),
+                    "gender" => $request->gender,
+                    "nidn" => $request->nidn,
+                    "phone" => $request->phone,
+                ]);
+            } else {
+                // Jika user tidak mengganti passwordnya
+                $user->update([
+                    "name" => $request->name,
+                    "email" => $request->email,
+                    "password" => $request->password,
+                    "gender" => $request->gender,
+                    "nidn" => $request->nidn,
+                    "phone" => $request->phone,
+                ]);
+            }
         }
 
         return redirect()->back()->with('status', 'User updated!');

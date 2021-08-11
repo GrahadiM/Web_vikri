@@ -9,7 +9,7 @@ Sistem Penjaminan Mutu <br> Fakultas Ilmu Komputer <br> Bidang Sumber Daya Manus
 <div class="content">
     <div class="container">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
             <div class="card shadow" style="background-color: aliceblue; border-radius: 35px;">
             <div class="card-body">
                 <div class="row">
@@ -32,47 +32,8 @@ Sistem Penjaminan Mutu <br> Fakultas Ilmu Komputer <br> Bidang Sumber Daya Manus
             <!-- /.card -->
         </div>
         <!-- /.col-md-9 -->
-        <div class="col-lg-3">
-            <h5>Kuesioner Yang Harus Diisi</h5>
-            <div class="info-box" style="background-color: aliceblue;">
-                <span class="info-box-icon" style="background-color: white;"><i class="fas fa-book"></i></span>
-
-                <div class="info-box-content">
-                <span class="info-box-text">Kuesioner 1 <i class="fas fa-chevron-right text-center"></i></span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-            <div class="info-box" style="background-color: aliceblue;">
-                <span class="info-box-icon" style="background-color: white;"><i class="fas fa-book"></i></span>
-
-                <div class="info-box-content">
-                <span class="info-box-text">Kuesioner 2 <i class="fas fa-chevron-right text-center"></i></span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-            <div class="info-box" style="background-color: aliceblue;">
-                <span class="info-box-icon" style="background-color: white;"><i class="fas fa-book"></i></span>
-
-                <div class="info-box-content">
-                <span class="info-box-text">Kuesioner 3 <i class="fas fa-chevron-right text-center"></i></span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-            <div class="info-box" style="background-color: aliceblue;">
-                <span class="info-box-icon" style="background-color: white;"><i class="fas fa-book"></i></span>
-
-                <div class="info-box-content">
-                <span class="info-box-text">Kuesioner 4 <i class="fas fa-chevron-right text-center"></i></span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        <!-- /.col-md-3 -->
-        <div class="col-lg-9">
+        {{-- @include('dosen.kuesioner') --}}
+        {{-- <div class="col-lg-9">
             <hr>
             <h4 style="font-weight: bold;">Aktivitas Terakhir</h4>
             <div class="row">
@@ -99,7 +60,7 @@ Sistem Penjaminan Mutu <br> Fakultas Ilmu Komputer <br> Bidang Sumber Daya Manus
                 </div>
             </div>
         </div>
-        <!-- /.col-md-9 -->
+        <!-- /.col-md-9 --> --}}
     </div>
     <!-- /.row -->
     </div>

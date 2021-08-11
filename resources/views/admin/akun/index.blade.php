@@ -16,12 +16,13 @@ List Accounts
           </div>
           @endif
           <div class="card">
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                       <th>No</th>
                       <th>Email</th>
+                      <th>Username</th>
                       <th>Nama</th>
                       <th>Jenis Kelamin</th>
                       <th>Tanggal Lahir</th>
@@ -36,6 +37,7 @@ List Accounts
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->username }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->gender }}</td>
                     <td>{{ $user->birthday }}</td>
@@ -53,6 +55,19 @@ List Accounts
                   @endif
                   @endforeach
                 </tbody>
+                <tfoot>
+                  <tr>
+                      <th>No</th>
+                      <th>Email</th>
+                      <th>Username</th>
+                      <th>Nama</th>
+                      <th>Jenis Kelamin</th>
+                      <th>Tanggal Lahir</th>
+                      <th>Jabatan</th>
+                      <th>NIDN/NIDK Dosen</th>
+                      <th>Alat</th>
+                  </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->

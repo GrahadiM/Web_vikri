@@ -17,12 +17,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nidn" class="col-md-4 col-form-label text-md-right">{{ __('nidn') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail atau (NIDN/NIDK)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nidn" type="nidn" class="form-control @error('nidn') is-invalid @enderror" name="nidn" value="{{ old('nidn') }}" required autocomplete="nidn" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('nidn')
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

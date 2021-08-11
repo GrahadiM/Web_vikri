@@ -50,7 +50,6 @@ class ProfileController extends Controller
             // File::delete('assets/image/profile' . $user->image);
 
             // Jika user mengganti passwornya password 
-
             if ($user->password != $request->password) {
                 $user->update([
                     "name" => $request->name,
@@ -74,15 +73,28 @@ class ProfileController extends Controller
                 ]);
             }
         } else {
-            //jika user tidak mengubah foto
-            $user->update([
-                "name" => $request->name,
-                "email" => $request->email,
-                "password" => $request->password,
-                "gender" => $request->gender,
-                "nidn" => $request->nidn,
-                "phone" => $request->phone,
-            ]);
+            // Jika user tidak mengubah foto
+            // Jika user mengganti passwornya password 
+            if ($user->password != $request->password) {
+                $user->update([
+                    "name" => $request->name,
+                    "email" => $request->email,
+                    "password" => Hash::make($request->password),
+                    "gender" => $request->gender,
+                    "nidn" => $request->nidn,
+                    "phone" => $request->phone,
+                ]);
+            } else {
+                // Jika user tidak mengganti passwordnya
+                $user->update([
+                    "name" => $request->name,
+                    "email" => $request->email,
+                    "password" => $request->password,
+                    "gender" => $request->gender,
+                    "nidn" => $request->nidn,
+                    "phone" => $request->phone,
+                ]);
+            }
         }
     	
     	return redirect('profile')->with('status', 'Profile updated!');

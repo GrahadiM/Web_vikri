@@ -21,8 +21,30 @@ class DosenTidakTetapController extends Controller
         return view('staff.dosenTidakTetap.create', compact('users'));
     }
     public function store(Request $request)
-    {
-        //
+    {   
+        $attr = $this->validate(request(), [
+            'user_id' => 'nullable',
+            'pps' => 'required',
+            'bk' => 'required',
+            'ja' => 'required',
+            'mk' => 'required',
+            'kmk' => 'required',
+        ]);
+        //Dekripsi
+        $attr['desc'] = 'Dosen Tidak Tetap';
+        //SKPI
+        $skpi = request('skpi');
+        $skpiName = time() . rand(100, 999) . "_" . $skpi->getClientOriginalName();
+        $skpi->move(public_path() . '/file/skpi', $skpiName);
+        $attr['skpi'] = $skpiName;
+        //SPP
+        $spp = request('spp');
+        $sppName = time() . rand(100, 999) . "_" . $spp->getClientOriginalName();
+        $spp->move(public_path() . '/file/spp', $sppName);
+        $attr['spp'] = $sppName;
+        ProfileDosen::create($attr);
+        
+    	return back()->with('status', 'Data Created!');
     }
     public function show($id)
     {
@@ -35,48 +57,66 @@ class DosenTidakTetapController extends Controller
         $dosen = ProfileDosen::find($id);
         return view('staff.dosenTidakTetap.update', compact('dosen', 'users'));
     }
-    public function update(Request $request, $dosen)
+    public function update(Request $request, $id)
     {
-        dd($request->all());
-        $request->validate([
-            'user_id' => 'reqired|numeric',
-            // 'file' => 'required|mimes:pdf,xlx,csv|max:2048',
+        // dd($request->all());
+        $attr = $this->validate(request(), [
+            'user_id' => 'nullable',
+            'pps' => 'required',
+            'bk' => 'required',
+            'ja' => 'required',
+            'mk' => 'required',
+            'kmk' => 'required',
         ]);
-   
-        $dosen = ProfileDosen::find($dosen->id);
+        //Dekripsi
+        $attr['desc'] = 'Dosen Tidak Tetap';
+        
+        $dosen = ProfileDosen::find($id);
 
-        if ($request->hasFile("spp")) {
-            $file = $request->file("spp");
-            // $fileName = time() . "." . $file->getClientOriginalExtension();
-            $fileName = time().'.'.$file->getClientOriginalExtension();  
-
-            $request->file->move(public_path('files/dosen'), $fileName);
+        //SKPI
+        if ($request->hasFile('skpi')){
+            $skpi_req = request('skpi');
+            $skpiName = time() . rand(100, 999) . "_" . $skpi_req->getClientOriginalName();
+            $skpi_req->move(public_path() . '/file/skpi', $skpiName);
+            $attr['skpi'] = $skpiName;
+            
+            $dosen->update($attr);
         }
-        if ($request->hasFile("skpi")) {
-            $file = $request->file("skpi");
-            // $fileName = time() . "." . $file->getClientOriginalExtension();
-            $fileName = time().'.'.$file->getClientOriginalExtension();  
 
-            $request->file->move(public_path('files/dosen'), $fileName);
+        //SPP
+        if ($request->hasFile('spp')){
+            $spp_req = request('spp');
+            $sppName = time() . rand(100, 999) . "_" . $spp_req->getClientOriginalName();
+            $spp_req->move(public_path() . '/file/spp', $sppName);
+            $attr['spp'] = $sppName;
+
+            $dosen->update($attr);
         }
         
-        $dosen->update([
-            "file" => $fileName,
-            "user_id" => $request->user_id,
-            "pps" => $request->pps,
-            "bk" => $request->bk,
-            "ja" => $request->ja,
-            "spp" => $request->fileSpp,
-            "skpi" => $request->fileSkpi,
-            "mk" => $request->mk,
-            "kmk" => $request->kmk,
-            "desc" => $request->desc,
-        ]);
+        //SKPI dan SPP
+        if ($request->hasFile(['skpi', 'spp'])){
 
-        return redirect()->route('dosenTidakTetap.index');
+            $skpi_req = request('skpi');
+            $skpiName = time() . rand(100, 999) . "_" . $skpi_req->getClientOriginalName();
+            $skpi_req->move(public_path() . '/file/skpi', $skpiName);
+            $attr['skpi'] = $skpiName;
+
+            $spp_req = request('spp');
+            $sppName = time() . rand(100, 999) . "_" . $spp_req->getClientOriginalName();
+            $spp_req->move(public_path() . '/file/spp', $sppName);
+            $attr['spp'] = $sppName;
+
+            $dosen->update($attr);
+        }
+
+        $dosen->update($attr);
+
+        return back()->with('status', 'Data Updated!');
     }
     public function destroy($id)
     {
-        //
+        $dosen = ProfileDosen::find($id);
+        $dosen->delete();
+        return back()->with('status', 'Data Deleted');
     }
 }

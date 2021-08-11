@@ -77,34 +77,7 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
             <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
-        <div class="col-lg-9">
-            <hr>
-          <h4 style="font-weight: bold;">Aktivitas Terakhir</h4>
-          <div class="row">
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 1</h4>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 2</h4>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 3</h4>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        <!-- /.col-md-9 -->
+          
       </div>
       <!-- /.row -->
     </div>
@@ -176,34 +149,7 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
             <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
-        <div class="col-lg-9">
-            <hr>
-          <h4 style="font-weight: bold;">Aktivitas Terakhir</h4>
-          <div class="row">
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 1</h4>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 2</h4>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="card" style="background-color: aliceblue; border-radius: 36px;">
-                      <div class="card-body">
-                          <h4 style="padding: 36px 36px 36px 52px;">Aktivitas 3</h4>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        <!-- /.col-md-9 -->
+          
       </div>
       <!-- /.row -->
     </div>

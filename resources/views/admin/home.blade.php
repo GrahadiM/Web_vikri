@@ -32,7 +32,7 @@ Sistem Penjaminan Mutu <br> Fakultas Ilmu Komputer <br> Bidang Sumber Daya Manus
                     <!-- /.card -->
                 </div>
                 <!-- /.col-md-9 -->
-                <div class="col-lg-9">
+                {{-- <div class="col-lg-9">
                     <hr>
                     <h4 style="font-weight: bold;">Aktivitas Terakhir</h4>
                     <div class="row">
@@ -59,7 +59,7 @@ Sistem Penjaminan Mutu <br> Fakultas Ilmu Komputer <br> Bidang Sumber Daya Manus
                         </div>
                     </div>
                 </div>
-                <!-- /.col-md-9 -->
+                <!-- /.col-md-9 --> --}}
             </div>
             <!-- /.row -->
         </div>

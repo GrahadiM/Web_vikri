@@ -72,10 +72,17 @@ Update Akun
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="email" class="col-md-2 col-form-label text-md-left">Email</label>
+                                            <label for="email" class="col-md-2 col-form-label text-md-left">E-mail Address</label>
                                             <div class="col-md-10">
                                                 <input name="email" id="email" type="email" class="form-control" placeholder="Email"  value="{{ $user->email }}">
                                                 <p class="text-danger">{{ $errors->first("email") }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="username" class="col-md-2 col-form-label text-md-left">Username</label>
+                                            <div class="col-md-10">
+                                                <input name="username" id="username" type="username" class="form-control" placeholder="username"  value="{{ $user->username }}">
+                                                <p class="text-danger">{{ $errors->first("username") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">

@@ -31,7 +31,7 @@ Create Dosen Tidak Tetap
                                         <div class="form-group row">
                                             <label for="user_id" class="col-md-2 col-form-label text-md-left">Nama Dosen</label>
                                             <div class="col-md-10">
-                                                <select name="user_id" class="form-control">
+                                                <select name="user_id" class="form-control" autofocus>
                                                     @foreach ($users as $user)
                                                     {{-- @if ($user->id == auth()->user()->id) --}}
                                                     <option value="{{ $user->id }}">{{ $user->name }}</option>

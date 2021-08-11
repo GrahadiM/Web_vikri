@@ -20,46 +20,30 @@ class DosenTetapController extends Controller
         return view('staff.dosenTetap.create', compact('users'));
     }
     public function store(Request $request)
-    {
-        // dd($request->all());
-        $request->validate([
-            // "user_id" => "nullable",
-            "pps" => "required",
-            "bk" => "required",
-            "ja" => "required",
-            "mk" => "required",
-            "kmk" => "required",
-            // "spp" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
-            // "skpi" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
+    {   
+        $attr = $this->validate(request(), [
+            'user_id' => 'nullable',
+            'pps' => 'required',
+            'bk' => 'required',
+            'ja' => 'required',
+            'mk' => 'required',
+            'kmk' => 'required',
         ]);
-
-        if ($request->hasFile("spp")) {
-            $file = $request->file("spp");
-            $filename = time() . "." . $file->getClientOriginalExtension();
-
-            $file->move('file/sertifikat-pendidikan-profesional', $filename);
-
-            if ($request->hasFile("skpi")) {
-                $file = $request->file("skpi");
-                $filename2 = time() . "." . $file->getClientOriginalExtension();
-
-                $file->move('file/sertifikat-kompetensi-profesi-industri', $filename2);
-
-                // File::delete('assets/image/skpi' . $user->skpi);
-                ProfileDosen::create([
-                    "user_id" => $request->user_id,
-                    "pps" => $request->pps,
-                    "bk" => $request->bk,
-                    "ja" => $request->ja,
-                    "mk" => $request->mk,
-                    "kmk" => $request->kmk,
-                    "spp" => $filename,
-                    "skpi" => $filename2,
-                ]);
-            }
-        }
+        //Dekripsi
+        $attr['desc'] = 'Dosen Tetap';
+        //SKPI
+        $skpi = request('skpi');
+        $skpiName = time() . rand(100, 999) . "_" . $skpi->getClientOriginalName();
+        $skpi->move(public_path() . '/file/skpi', $skpiName);
+        $attr['skpi'] = $skpiName;
+        //SPP
+        $spp = request('spp');
+        $sppName = time() . rand(100, 999) . "_" . $spp->getClientOriginalName();
+        $spp->move(public_path() . '/file/spp', $sppName);
+        $attr['spp'] = $sppName;
+        ProfileDosen::create($attr);
     	
-    	return redirect()->back()->with('status', 'Data Created!');
+    	return back()->with('status', 'Data Created!');
     }
    public function show($id)
     {
@@ -74,70 +58,63 @@ class DosenTetapController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        $request->validate([
-            // "user_id" => "nullable",
-            "pps" => "required",
-            "bk" => "required",
-            "ja" => "required",
-            "mk" => "required",
-            "kmk" => "required",
-            // "spp" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
-            // "skpi" => "nullable|csv,txt,xlx,xls,pdf|max:2048",
+        $attr = $this->validate(request(), [
+            'user_id' => 'nullable',
+            'pps' => 'required',
+            'bk' => 'required',
+            'ja' => 'required',
+            'mk' => 'required',
+            'kmk' => 'required',
         ]);
+        //Dekripsi
+        $attr['desc'] = 'Dosen Tetap';
+        
+        $dosen = ProfileDosen::find($id);
 
-        if ($request->hasFile("spp")) {
-            $file = $request->file("spp");
-            $filename = time() . "." . $file->getClientOriginalExtension();
-
-            $file->move('file/sertifikat-pendidikan-profesional', $filename);
-
-            if ($request->hasFile("skpi")) {
-                $file = $request->file("skpi");
-                $filename2 = time() . "." . $file->getClientOriginalExtension();
-
-                $file->move('file/sertifikat-kompetensi-profesi-industri', $filename2);
-
-                // File::delete('assets/image/skpi' . $user->skpi);
-                $dosen = ProfileDosen::find($id);
-                $dosen->update([
-                    "user_id" => $request->user_id,
-                    "pps" => $request->pps,
-                    "bk" => $request->bk,
-                    "ja" => $request->ja,
-                    "mk" => $request->mk,
-                    "kmk" => $request->kmk,
-                    "spp" => $filename,
-                    "skpi" => $filename2,
-                ]);
-                
-                $dosen = ProfileDosen::find($id);
-                $dosen->update([
-                    "user_id" => $request->user_id,
-                    "pps" => $request->pps,
-                    "bk" => $request->bk,
-                    "ja" => $request->ja,
-                    "mk" => $request->mk,
-                    "kmk" => $request->kmk,
-                    "spp" => $filename,
-                ]);
-            }
+        //SKPI
+        if ($request->hasFile('skpi')){
+            $skpi_req = request('skpi');
+            $skpiName = time() . rand(100, 999) . "_" . $skpi_req->getClientOriginalName();
+            $skpi_req->move(public_path() . '/file/skpi', $skpiName);
+            $attr['skpi'] = $skpiName;
             
-            $dosen = ProfileDosen::find($id);
-            $dosen->update([
-                "user_id" => $request->user_id,
-                "pps" => $request->pps,
-                "bk" => $request->bk,
-                "ja" => $request->ja,
-                "mk" => $request->mk,
-                "kmk" => $request->kmk,
-            ]);
+            $dosen->update($attr);
         }
-        return redirect()->back()->with('status', 'Form Updated!');
+
+        //SPP
+        if ($request->hasFile('spp')){
+            $spp_req = request('spp');
+            $sppName = time() . rand(100, 999) . "_" . $spp_req->getClientOriginalName();
+            $spp_req->move(public_path() . '/file/spp', $sppName);
+            $attr['spp'] = $sppName;
+
+            $dosen->update($attr);
+        }
+        
+        //SKPI dan SPP
+        if ($request->hasFile(['skpi', 'spp'])){
+
+            $skpi_req = request('skpi');
+            $skpiName = time() . rand(100, 999) . "_" . $skpi_req->getClientOriginalName();
+            $skpi_req->move(public_path() . '/file/skpi', $skpiName);
+            $attr['skpi'] = $skpiName;
+
+            $spp_req = request('spp');
+            $sppName = time() . rand(100, 999) . "_" . $spp_req->getClientOriginalName();
+            $spp_req->move(public_path() . '/file/spp', $sppName);
+            $attr['spp'] = $sppName;
+
+            $dosen->update($attr);
+        }
+
+        $dosen->update($attr);
+
+        return back()->with('status', 'Data Updated!');
     }
     public function destroy($id)
     {
         $dosen = ProfileDosen::find($id);
         $dosen->delete();
-        return redirect()->back()->with('status', 'Data Deleted');
+        return back()->with('status', 'Data Deleted');
     }
 }

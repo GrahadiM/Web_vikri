@@ -42,19 +42,6 @@ class ProfileDosenSeeder extends Seeder
                 'desc' => 'Dosen Tidak Tetap',
                 'pa' => 'YA',
             ],
-            [
-                'user_id' => 5,
-                'pps' => '',
-                'bk' => '',
-                'ja' => '',
-                'spp' => '',
-                'skpi' => '',
-                'mk' => '',
-                'kmk' => '',
-                'total_mahasiswa' => '32',
-                'desc' => 'Dosen Tidak Tetap',
-                'pa' => 'YA',
-            ],
         ];
         
         foreach ($items as $key => $value) {
