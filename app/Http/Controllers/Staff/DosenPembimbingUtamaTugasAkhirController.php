@@ -12,6 +12,7 @@ class DosenPembimbingUtamaTugasAkhirController extends Controller
     public function index()
     {
         $dosens = ProfileDosen::all();
+        // dd($dosens);
         return view('staff.dosenTA.index', compact('dosens'));
     }
     public function create()

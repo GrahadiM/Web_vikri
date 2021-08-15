@@ -56,7 +56,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Status');
     }
-    public function profile()
+    public function profile_dosen()
     {
         return $this->belongsTo('App\Models\ProfileDosen');
     }
