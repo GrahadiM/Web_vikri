@@ -26,7 +26,6 @@ class User extends Authenticatable
         'birthday',
         'image',
         'email',
-        'username',
         'password',
     ];
 
@@ -60,5 +59,13 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->belongsTo('App\Models\ProfileDosen');
+    }
+    public function dosentetap()
+    {
+        return $this->belongsTo('App\Models\DosenTetap');
+    }
+    public function dosentidaktetap()
+    {
+        return $this->belongsTo('App\Models\DosenTidakTetap');
     }
 }

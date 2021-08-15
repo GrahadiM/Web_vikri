@@ -35,13 +35,6 @@ Create Account
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
-                            <div class="col-md-6">
-                                <input id="username" type="username" class="form-control" name="username" placeholder="{{ __('Masukan username') }}">
-                                <p class="text-danger">{{ $errors->first("username") }}</p>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="nidn" class="col-md-4 col-form-label text-md-right">{{ __('NIDN / NIDK') }}</label>
                             <div class="col-md-6">
                                 <input id="nidn" type="number" class="form-control" name="nidn" placeholder="Masukan NIDK / NIDK">

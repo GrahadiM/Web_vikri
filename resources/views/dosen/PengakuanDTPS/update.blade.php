@@ -23,40 +23,33 @@
                         <form class="form" method="POST" action="{{ route('Pengakuan-DTPS.update', $item->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group row">
-                                            <label for="produk" class="col-md-2 col-form-label text-md-left">Nama Produk/Pengakuan</label>
-                                            <div class="col-md-10">
-                                                <input name="produk" id="produk" class="form-control" type="text" value="{{ $item->produk }}">
-                                                <p class="text-danger">{{ $errors->first("produk") }}</p>
-                                            </div>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group row">
+                                        <label for="keahlian" class="col-md-2 col-form-label text-md-left">Bidang Keahlian</label>
+                                        <div class="col-md-10">
+                                            <input name="keahlian" id="keahlian" class="form-control" type="text" value="{{ $item->keahlian }}">
+                                            <p class="text-danger">{{ $errors->first("keahlian") }}</p>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="deskripsi" class="col-md-2 col-form-label text-md-left">Deskripsi Produk</label>
-                                            <div class="col-md-10">
-                                                <input name="deskripsi" id="deskripsi" class="form-control" type="text" value="{{ $item->deskripsi }}">
-                                                <p class="text-danger">{{ $errors->first("deskripsi") }}</p>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="bukti" class="col-md-2 col-form-label text-md-left">Rekognisi dan Bukti Pendukung</label>
+                                        <div class="col-md-10">
+                                            <input name="bukti" id="bukti" class="form-control" type="file" value="{{ $item->bukti }}">
+                                            <p class="text-danger">{{ $errors->first("bukti") }}</p>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="bukti" class="col-md-2 col-form-label text-md-left">Bukti</label>
-                                            <div class="col-md-10">
-                                                <input name="bukti" id="bukti" class="form-control" type="file" value="{{ $item->bukti }}">
-                                                <p class="text-danger">{{ $errors->first("bukti") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="tahun" class="col-md-2 col-form-label text-md-left">Tahun</label>
-                                            <div class="col-md-10">
-                                                <input name="tahun" id="tahun" class="form-control" type="text" value="{{ $item->tahun }}">
-                                                <p class="text-danger">{{ $errors->first("tahun") }}</p>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tingkat" class="col-md-2 col-form-label text-md-left">Tingkat</label>
+                                        <div class="col-md-10">
+                                            <input name="tingkat" id="tingkat" class="form-control" type="text" value="{{ $item->tingkat }}">
+                                            <p class="text-danger">{{ $errors->first("tingkat") }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <div class="row mt-5">
                                 <div class="form-actions col-6"></div>
                                 <div class="form-actions col-6 d-flex justify-content-end">

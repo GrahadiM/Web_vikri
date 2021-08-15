@@ -18,29 +18,11 @@ class ProfileDosenSeeder extends Seeder
         $items = [
             [
                 'user_id' => 3,
-                'pps' => '',
-                'bk' => '',
-                'ja' => '',
-                'spp' => '',
-                'skpi' => '',
-                'mk' => '',
-                'kmk' => '',
                 'total_mahasiswa' => '42',
-                'desc' => 'Dosen Tetap',
-                'pa' => 'YA',
             ],
             [
                 'user_id' => 4,
-                'pps' => '',
-                'bk' => '',
-                'ja' => '',
-                'spp' => '',
-                'skpi' => '',
-                'mk' => '',
-                'kmk' => '',
                 'total_mahasiswa' => '36',
-                'desc' => 'Dosen Tidak Tetap',
-                'pa' => 'YA',
             ],
         ];
         

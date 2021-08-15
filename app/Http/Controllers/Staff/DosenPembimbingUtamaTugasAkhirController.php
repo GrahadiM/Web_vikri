@@ -29,7 +29,6 @@ class DosenPembimbingUtamaTugasAkhirController extends Controller
         ProfileDosen::create([
             "user_id" => $request->user_id,
             "total_mahasiswa" => $request->total_mahasiswa,
-            "pa" => "YA",
         ]);
     	
     	return redirect()->back()->with('status', 'Data Created!');
@@ -46,7 +45,18 @@ class DosenPembimbingUtamaTugasAkhirController extends Controller
     }
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            "user_id" => "nullable",
+            "total_mahasiswa" => "required",
+        ]);
+        $dosen = ProfileDosen::find($id);
+        $dosen->update([
+            "user_id" => $request->user_id,
+            "total_mahasiswa" => $request->total_mahasiswa,
+        ]);
+    	
+    	return redirect()->back()->with('status', 'Data Created!');
     }
     public function destroy($id)
     {

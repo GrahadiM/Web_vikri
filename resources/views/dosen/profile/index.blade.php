@@ -60,13 +60,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="desc" class="col-md-2 col-form-label text-md-left">Deskripsi</label>
-                                            <div class="col-md-10">
-                                                <input name="desc" type="text" id="desc" class="form-control" value="{{ $user->desc }}" disabled>
-                                                <p class="text-danger">{{ $errors->first("desc") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label for="email" class="col-md-2 col-form-label text-md-left">Email</label>
                                             <div class="col-md-10">
                                                 <input name="email" id="email" type="email" class="form-control" placeholder="Email"  value="{{ $user->email }}">

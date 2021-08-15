@@ -25,7 +25,6 @@ class AkunController extends Controller
         $request->validate([
             'name' => 'required', 'string', 'max:255',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'username' => 'required', 'string', 'max:255', 'unique:users',
             'nidn' => 'required', 'numeric', 'unique:users',
             'birthday' => 'required',
             'gender' => 'required',
@@ -36,14 +35,12 @@ class AkunController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'username' => $request->username,
             'nidn' => $request->nidn,
             'birthday' => $request->birthday,
             'gender' => $request->gender,
             'role_id' => $request->role_id,
             'status_id' => 1,
             'image' => 'user.png',
-            'desc' => 'Dosen Tidak Tetap',
             'password' => Hash::make($request->password),
         ]);
 
@@ -66,11 +63,7 @@ class AkunController extends Controller
         $this->validate($request, [
             "name" => "required|string",
             "email" => "required|email|unique:users,id," . $id,
-            "username" => "required|unique:users,id," . $id,
             "password" => "required",
-            // "gender" => "required",
-            // "nidn" => "required",
-            // "phone" => "required|numeric",
         ]);
 
         $user = User::find($id);
@@ -89,26 +82,22 @@ class AkunController extends Controller
                 $user->update([
                     "name" => $request->name,
                     "email" => $request->email,
-                    "username" => $request->username,
                     "password" => Hash::make($request->password),
                     "image" => $filename,
                     "gender" => $request->gender,
                     "nidn" => $request->nidn,
                     "phone" => $request->phone,
-                    "desc" => $request->desc,
                 ]);
             } else {
                 // Jika user tidak mengganti passwordnya
                 $user->update([
                     "name" => $request->name,
                     "email" => $request->email,
-                    "username" => $request->username,
                     "password" => $request->password,
                     "image" => $filename,
                     "gender" => $request->gender,
                     "nidn" => $request->nidn,
                     "phone" => $request->phone,
-                    "desc" => $request->desc,
                 ]);
             }
         } else {

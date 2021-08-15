@@ -30,7 +30,7 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-md-2 col-form-label text-md-left">Nama</label>
                                             <div class="col-md-10">
-                                                <input name="name" id="name" class="form-control" type="text" value="{{ $user->name }}">
+                                                <input autofocus name="name" id="name" class="form-control" type="text" value="{{ $user->name }}">
                                                 <p class="text-danger">{{ $errors->first("name") }}</p>
                                             </div>
                                         </div>
@@ -57,13 +57,6 @@
                                                     <option value="Wanita">Wanita</option>
                                                 </select>
                                                 <p class="text-danger">{{ $errors->first("gender") }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="desc" class="col-md-2 col-form-label text-md-left">Deskripsi</label>
-                                            <div class="col-md-10">
-                                                <input name="desc" type="text" id="desc" class="form-control" value="{{ $user->desc }}" disabled>
-                                                <p class="text-danger">{{ $errors->first("desc") }}</p>
                                             </div>
                                         </div>
                                         <div class="form-group row">

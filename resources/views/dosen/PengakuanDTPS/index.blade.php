@@ -113,7 +113,9 @@ Pengakuan/Rekognisi DTPS
                           <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->keahlian }}</td>
-                            <td>{{ $item->bukti }}</td>
+                            <td>
+                              <a href="{{ url('file/bukti', $item->bukti) }}" target="_blank" rel="noopener noreferrer">{{ $item->bukti }}</a>
+                            </td>
                             <td>{{ $item->tingkat }}</td>
                             <td>
                               <form action="{{ route('Pengakuan-DTPS.destroy', $item->id) }}" method="POST">
@@ -144,7 +146,6 @@ Pengakuan/Rekognisi DTPS
             <!-- /.card -->
         </div>
         <!-- /.col-md-12 -->
-          
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->

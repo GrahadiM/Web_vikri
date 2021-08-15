@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
             ProfileDosenSeeder::class,
             UsersSeeder::class,
-            UsersTableSeeder::class,
+            // UsersTableSeeder::class,
             // EWMPSeeder::class,
             // PengakuanSeeder::class,
             // PenelitianSeeder::class,

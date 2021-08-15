@@ -36,7 +36,6 @@ Dosen Pembimbing Utama Tugas Akhir
                         </thead>
                         <tbody>
                             @foreach ($dosens as $dosen)
-                            @if ($dosen->pa == "YA")
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dosen->user->name }}</td>
@@ -52,7 +51,6 @@ Dosen Pembimbing Utama Tugas Akhir
                                     </form>
                                 </td>
                             </tr>
-                            @endif
                             @endforeach
                         </tbody>
                         <tfoot>

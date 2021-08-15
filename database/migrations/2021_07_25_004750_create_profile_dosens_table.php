@@ -16,16 +16,7 @@ class CreateProfileDosensTable extends Migration
         Schema::create('profile_dosen', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id'); //Dosen 
-            $table->string('pps')->nullable(); //Pendidikan Pasca Sarjana
-            $table->string('bk')->nullable(); //Bidang Keahlian
-            $table->string('ja')->nullable(); //Jabatan Akademik
-            $table->string('spp')->nullable(); //Sertifikat Pendidik Profesional
-            $table->string('skpi')->nullable(); //Sertifikat Kompetensi Profesi Industri
-            $table->string('mk')->nullable(); //Mata kuliah yang mampu diampu
-            $table->string('kmk')->nullable(); //Kesesuaian Mata Kuliah dengan bidang keahlian yang diampu
             $table->string('total_mahasiswa')->nullable(); //Jumlah Mahasiswa yang Dibimbing
-            $table->string('pa')->nullable(); //Pembinmbing akademik
-            $table->string('desc')->nullable(); //Dosen Tetap atau Dosen Tidak Tetap
             $table->timestamps();
         });
     }

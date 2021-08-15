@@ -22,8 +22,9 @@ Update Dosen TA
                     </div>
                     <div class="card-body">
                         <p class="card-text"></p>
-                        <form class="form" method="POST" action="{{ route('dosenPembimbingTA.store') }}" enctype="multipart/form-data">
+                        <form class="form" method="POST" action="{{ route('dosenPembimbingTA.update', $dosen->id) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-sm-12">

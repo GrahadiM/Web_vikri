@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProfileDosen;
+use App\Models\DosenTetap;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class DosenTetapController extends Controller
 {
     public function index()
     {
-        $dosens = ProfileDosen::all();
+        $dosens = DosenTetap::all();
         return view('staff.dosenTetap.index', compact('dosens'));
     }
     public function create()
@@ -29,8 +29,6 @@ class DosenTetapController extends Controller
             'mk' => 'required',
             'kmk' => 'required',
         ]);
-        //Dekripsi
-        $attr['desc'] = 'Dosen Tetap';
         //SKPI
         $skpi = request('skpi');
         $skpiName = time() . rand(100, 999) . "_" . $skpi->getClientOriginalName();
@@ -41,18 +39,18 @@ class DosenTetapController extends Controller
         $sppName = time() . rand(100, 999) . "_" . $spp->getClientOriginalName();
         $spp->move(public_path() . '/file/spp', $sppName);
         $attr['spp'] = $sppName;
-        ProfileDosen::create($attr);
+        DosenTetap::create($attr);
     	
     	return back()->with('status', 'Data Created!');
     }
    public function show($id)
     {
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTetap::find($id);
         return view('staff.dosenTetap.show', compact('dosen'));
     }
     public function edit($id)
     {
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTetap::find($id);
         return view('staff.dosenTetap.update', compact('dosen'));
     }
     public function update(Request $request, $id)
@@ -66,10 +64,8 @@ class DosenTetapController extends Controller
             'mk' => 'required',
             'kmk' => 'required',
         ]);
-        //Dekripsi
-        $attr['desc'] = 'Dosen Tetap';
         
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTetap::find($id);
 
         //SKPI
         if ($request->hasFile('skpi')){
@@ -113,7 +109,7 @@ class DosenTetapController extends Controller
     }
     public function destroy($id)
     {
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTetap::find($id);
         $dosen->delete();
         return back()->with('status', 'Data Deleted');
     }

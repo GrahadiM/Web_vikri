@@ -37,7 +37,6 @@ Data Dosen Tetap
                         </thead>
                         <tbody>
                             @foreach ($dosens as $dosen)
-                            @if ($dosen->desc == "Dosen Tetap")
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dosen->user->name }}</td>
@@ -67,7 +66,6 @@ Data Dosen Tetap
                                     </form>
                                 </td>
                             </tr>
-                            @endif
                             @endforeach
                         </tbody>
                         <tfoot>

@@ -5,14 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProfileDosen extends Model
+class DosenTetap extends Model
 {
     use HasFactory;
-    protected $table = 'profile_dosen';
+    protected $table = 'dosen_tetaps';
     protected $fillable = 
     [
         'user_id',
-        'total_mahasiswa',
+        'pps',
+        'bk',
+        'ja',
+        'spp',
+        'skpi',
+        'mk',
+        'kmk',
     ];
     public function user()
     {

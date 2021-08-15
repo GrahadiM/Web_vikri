@@ -2,7 +2,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="{{ url('/home') }}" class="navbar-brand">
-                    <img src="{{ asset('assets') }}/dist/img/LogoEsgul.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+                    <img src="{{ asset('assets') }}/dist/img/LogoEsgul.png" alt="Logo" class="brand-image" style="opacity: .8">
                     <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> -->
                 </a>
 
@@ -62,8 +62,9 @@
                             <div class="image">
                                 @if (Auth::user()->image == null)
                                 <img src="{{ asset('assets') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                                @endif
+                                @else
                                 <img src="{{ asset('img/profile') }}/{{ Auth::user()->image }}" class="img-circle elevation-2" alt="User Image">
+                                @endif
                             </div>
                         </div>
                     </li>

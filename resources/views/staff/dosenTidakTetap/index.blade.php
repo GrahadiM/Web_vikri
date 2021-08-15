@@ -37,9 +37,9 @@ Data Dosen Tidak Tetap
                         </thead>
                         <tbody>
                             @foreach ($dosens as $dosen)
-                            @if ($dosen->desc == "Dosen Tidak Tetap")
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                {{-- <td>{{ $loop->iteration + $dosens->firstItem() - 1 . '.' }}</td> --}}
                                 <td>{{ $dosen->user->name }}</td>
                                 <td>{{ $dosen->user->nidn }}</td>
                                 <td>{{ $dosen->pps }}</td>
@@ -67,7 +67,6 @@ Data Dosen Tidak Tetap
                                     </form>
                                 </td>
                             </tr>
-                            @endif
                             @endforeach
                         </tbody>
                         <tfoot>

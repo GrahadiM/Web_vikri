@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
-use App\Models\ProfileDosen;
+use App\Models\DosenTidakTetap;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class DosenTidakTetapController extends Controller
 {
     public function index()
     {
-        $dosens = ProfileDosen::all();
+        $dosens = DosenTidakTetap::all();
         // dd($dosens);
         return view('staff.dosenTidakTetap.index', compact('dosens'));
     }
@@ -30,8 +30,6 @@ class DosenTidakTetapController extends Controller
             'mk' => 'required',
             'kmk' => 'required',
         ]);
-        //Dekripsi
-        $attr['desc'] = 'Dosen Tidak Tetap';
         //SKPI
         $skpi = request('skpi');
         $skpiName = time() . rand(100, 999) . "_" . $skpi->getClientOriginalName();
@@ -42,19 +40,19 @@ class DosenTidakTetapController extends Controller
         $sppName = time() . rand(100, 999) . "_" . $spp->getClientOriginalName();
         $spp->move(public_path() . '/file/spp', $sppName);
         $attr['spp'] = $sppName;
-        ProfileDosen::create($attr);
+        DosenTidakTetap::create($attr);
         
     	return back()->with('status', 'Data Created!');
     }
     public function show($id)
     {
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTidakTetap::find($id);
         return view('staff.dosenTidakTetap.show', compact('dosen'));
     }
     public function edit($id)
     {
         $users = User::all();
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTidakTetap::find($id);
         return view('staff.dosenTidakTetap.update', compact('dosen', 'users'));
     }
     public function update(Request $request, $id)
@@ -68,10 +66,8 @@ class DosenTidakTetapController extends Controller
             'mk' => 'required',
             'kmk' => 'required',
         ]);
-        //Dekripsi
-        $attr['desc'] = 'Dosen Tidak Tetap';
         
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTidakTetap::find($id);
 
         //SKPI
         if ($request->hasFile('skpi')){
@@ -115,7 +111,7 @@ class DosenTidakTetapController extends Controller
     }
     public function destroy($id)
     {
-        $dosen = ProfileDosen::find($id);
+        $dosen = DosenTidakTetap::find($id);
         $dosen->delete();
         return back()->with('status', 'Data Deleted');
     }
