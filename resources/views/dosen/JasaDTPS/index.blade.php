@@ -49,7 +49,6 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
                                     <form action="{{ route('Jasa-DTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('Jasa-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>
@@ -123,7 +122,6 @@ Produk/Jasa DTPS yang diadopsi oleh Industri/Masyarakat
                                     <form action="{{ route('Jasa-DTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('Jasa-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>

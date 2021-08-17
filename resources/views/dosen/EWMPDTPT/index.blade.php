@@ -41,7 +41,8 @@ Ekuivalen Waktu Mengajar Penuh <br> Dosen Tetap
                     <td>{{ $item->total_sks }}</td>
                     <td>
                       <form action="{{ route('EWMP-DTPT.destroy', $item->id) }}" method="post">
-                        <a href="{{ route('EWMP-DTPT.show', $item->id) }}" class="btn btn-sm btn-outline-info">Show</a>
+                        @csrf
+                        @method('DELETE')
                         <a href="{{ route('EWMP-DTPT.edit', $item->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
                         <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                       </form>
@@ -105,7 +106,6 @@ Ekuivalen Waktu Mengajar Penuh <br> Dosen Tetap
                       <form action="{{ route('EWMP-DTPT.destroy', $item->id) }}" method="POST">
                       @csrf
                       @method('DELETE')
-                        {{-- <a href="{{ route('EWMP-DTPT.show', $item->id) }}" class="btn btn-sm btn-outline-info">Show</a> --}}
                         <a href="{{ route('EWMP-DTPT.edit', $item->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
                         <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                       </form>

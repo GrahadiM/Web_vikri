@@ -34,7 +34,6 @@ Penelitian DTPS
                         </thead>
                         <tbody>
                             @foreach ($penelitian as $item)
-                            {{-- @if ($item->user->id == auth()->user()->id) --}}
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 @if (auth()->user()->role_id == 1)
@@ -46,13 +45,11 @@ Penelitian DTPS
                                     <form action="{{ route('Penelitian-DTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                        {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                         <a href="{{ route('Penelitian-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                         <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
-                            {{-- @endif --}}
                             @endforeach
                         </tbody>
                         <tfoot>
@@ -120,7 +117,6 @@ Penelitian DTPS
                                     <form action="{{ route('Penelitian-DTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                        {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                         <a href="{{ route('Penelitian-DTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                         <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>

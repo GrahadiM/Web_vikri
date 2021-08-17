@@ -43,7 +43,6 @@ Karya Ilmiah DTPS yang disitasi dalam 3 tahun terakhir
                                     <form action="{{ route('Karya-IlmiahDTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('Karya-IlmiahDTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>
@@ -113,7 +112,6 @@ Karya Ilmiah DTPS yang disitasi dalam 3 tahun terakhir
                                     <form action="{{ route('Karya-IlmiahDTPS.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('Karya-IlmiahDTPS.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>

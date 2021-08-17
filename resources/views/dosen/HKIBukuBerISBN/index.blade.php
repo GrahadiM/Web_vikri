@@ -47,7 +47,6 @@ Hak Kekayaan Intelektual (Buku Ber-ISBN, Book Chapter)
                                     <form action="{{ route('HKI-BukuBerISBN.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('HKI-BukuBerISBN.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>
@@ -117,7 +116,6 @@ Hak Kekayaan Intelektual (Buku Ber-ISBN, Book Chapter)
                                     <form action="{{ route('HKI-BukuBerISBN.destroy', $item->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- <a href="" class="btn btn-sm btn-outline-info"> <i class="fas fa-eye"></i></a> --}}
                                     <a href="{{ route('HKI-BukuBerISBN.edit', $item->id) }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                     <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
                                     </form>
